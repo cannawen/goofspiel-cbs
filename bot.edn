@@ -1,5 +1,5 @@
 {:bot/build-artifact "out/Main.jar"
- :bot/build-cmd "mkdir -p out && cp json.jar out/ && cd out && jar xf json.jar && cd .. && javac -cp json.jar -d out src/GameState.java src/Game.java src/Main.java && jar cfe out/Main.jar Main -C out ."
+ :bot/build-cmd "mkdir -p out && cp json.jar out/ && cd out && jar xf json.jar && cd .. && javac -cp json.jar -d out src/GameState.java src/Game.java src/Main.java src/strategies/Strategy.java src/strategies/CardPlusOneStrategy.java && jar cfe out/Main.jar Main -C out ."
  :bot/env "generic-jvm"
  :bot/game "goofspiel"
  :bot/id #uuid "019dfe04-b8d7-7ce3-919b-fd287a6a6f72"
