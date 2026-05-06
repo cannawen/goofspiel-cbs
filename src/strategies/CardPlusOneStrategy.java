@@ -8,10 +8,6 @@ public class CardPlusOneStrategy implements Strategy {
         if (currentTrophy == 13) {
             return myCards.stream().min(Integer::compareTo).get();
         }
-        int target = currentTrophy + 1;
-        if (myCards.contains(target)) {
-            return target;
-        }
-        return myCards.get(0);
+        return currentTrophy + 1;
     }
 }

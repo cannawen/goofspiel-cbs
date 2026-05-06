@@ -3,9 +3,9 @@ package game;
 import java.util.Arrays;
 import java.util.List;
 import strategies.Strategy;
-import strategies.CardEqualTrophyStrategy;
 import recon.ReconRule;
 import recon.OpponentMatchesTrophy;
+import recon.OpponentStrategyUnknown;
 
 public class Game {
     private static final List<ReconRule> RECON_RULES = Arrays.asList(
@@ -14,7 +14,13 @@ public class Game {
 
     public static int play(GameState state) {
         Strategy strategy = selectCounterStrategy(state);
-        return strategy.chooseCard(state.myCards, state.currentTrophy);
+        int card = strategy.chooseCard(state.myCards, state.currentTrophy);
+
+        if (state.myCards.contains(card)) {
+            return card;
+        } else {
+            return state.myCards.get(0);
+        }
     }
 
     static Strategy selectCounterStrategy(GameState state) {
@@ -23,6 +29,7 @@ public class Game {
                 return rule.getCounterStrategy();
             }
         }
-        return new CardEqualTrophyStrategy();
+
+        return new OpponentStrategyUnknown().getCounterStrategy();
     }
 }
