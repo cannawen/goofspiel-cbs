@@ -1,0 +1,1 @@
+Artifact should be a jar that contains all dependencies (aka. 'uberjar')

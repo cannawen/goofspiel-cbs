@@ -1,0 +1,10 @@
+# Compiled output
+out/
+*.class
+
+# macOS
+.DS_Store
+
+# Editor/tool caches
+.clj-kondo/.cache/
+.lsp/.cache/
