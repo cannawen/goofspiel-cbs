@@ -1,6 +1,7 @@
 import java.util.List;
 import strategies.Strategy;
 import strategies.CardPlusOneStrategy;
+import strategies.CardEqualTrophyStrategy;
 
 public class Game {
     public static int play(GameState state) {
@@ -21,6 +22,6 @@ public class Game {
         if (opponentMatchesTrophy(state.history)) {
             return new CardPlusOneStrategy();
         }
-        return new CardPlusOneStrategy();
+        return new CardEqualTrophyStrategy();
     }
 }
