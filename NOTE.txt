@@ -1,1 +1,4 @@
-Artifact should be a jar that contains all dependencies (aka. 'uberjar')
+To run:
+
+java -jar ../cyberleague.jar bot stage
+java -jar ../cyberleague.jar bot deploy
