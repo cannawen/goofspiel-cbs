@@ -5,11 +5,13 @@ import java.util.List;
 import strategies.Strategy;
 import recon.ReconRule;
 import recon.OpponentMatchesTrophy;
+import recon.OpponentPlaysTrophyPlusN;
 import recon.OpponentStrategyUnknown;
 
 public class Game {
     private static final List<ReconRule> RECON_RULES = Arrays.asList(
-        new OpponentMatchesTrophy()
+        new OpponentMatchesTrophy(),
+        new OpponentPlaysTrophyPlusN()
     );
 
     public static int play(GameState state) {
