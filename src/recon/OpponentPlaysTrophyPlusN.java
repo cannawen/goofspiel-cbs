@@ -1,5 +1,6 @@
 package recon;
 
+import game.GameConstants;
 import game.GameState;
 import strategies.TrophyPlusNStrategy;
 import strategies.Strategy;
@@ -16,7 +17,7 @@ public class OpponentPlaysTrophyPlusN implements ReconRule {
         if (history.isEmpty()) return false;
         Map<Integer, Integer> offsetCounts = new HashMap<>();
         for (GameState.Turn turn : history) {
-            int offset = turn.opponent - turn.trophy;
+            int offset = ((turn.opponent - turn.trophy) % GameConstants.MAX_CARD + GameConstants.MAX_CARD) % GameConstants.MAX_CARD;
             if (offset > 0) {
                 offsetCounts.merge(offset, 1, Integer::sum);
             }
