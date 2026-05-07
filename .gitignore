@@ -8,3 +8,5 @@ out/
 # Editor/tool caches
 .clj-kondo/.cache/
 .lsp/.cache/
+.claude/settings.json
+.claude/update-bot-edn.sh
