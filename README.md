@@ -1,6 +1,6 @@
 # CBS Bot 
 
-(Entry for Cyberleague)[https://cyberleague.rafd.me/]
+[Entry for Cyberleague](https://cyberleague.rafd.me/)
 
 ## To test locally:
 
