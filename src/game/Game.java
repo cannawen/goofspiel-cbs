@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import strategies.Strategy;
 import strategies.ClosestCardStrategy;
+import strategies.FuzzingStrategy;
 import recon.ReconRule;
 import recon.OpponentMatchesTrophy;
 import recon.OpponentPlaysTrophyPlusN;
@@ -18,7 +19,7 @@ public class Game {
     );
 
     public static int play(GameState state) {
-        Strategy strategy = new ClosestCardStrategy(selectCounterStrategy(state));
+        Strategy strategy = new ClosestCardStrategy(new FuzzingStrategy(selectCounterStrategy(state)));
         return strategy.chooseCard(state.myCards, state.currentTrophy);
     }
 
