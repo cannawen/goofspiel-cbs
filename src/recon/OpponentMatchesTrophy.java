@@ -1,8 +1,8 @@
 package recon;
 
 import game.GameState;
-import strategies.CardPlusOneStrategy;
 import strategies.Strategy;
+import strategies.TrophyPlusNStrategy;
 import java.util.List;
 
 public class OpponentMatchesTrophy implements ReconRule {
@@ -18,6 +18,6 @@ public class OpponentMatchesTrophy implements ReconRule {
 
     @Override
     public Strategy getCounterStrategy() {
-        return new CardPlusOneStrategy();
+        return new TrophyPlusNStrategy(1);
     }
 }

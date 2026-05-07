@@ -1,7 +1,7 @@
 package recon;
 
 import game.GameState;
-import strategies.CardTrophyPlusNStrategy;
+import strategies.TrophyPlusNStrategy;
 import strategies.Strategy;
 
 import java.util.HashMap;
@@ -32,6 +32,6 @@ public class OpponentPlaysTrophyPlusN implements ReconRule {
 
     @Override
     public Strategy getCounterStrategy() {
-        return new CardTrophyPlusNStrategy(detectedOffset + 1);
+        return new TrophyPlusNStrategy(detectedOffset + 1);
     }
 }

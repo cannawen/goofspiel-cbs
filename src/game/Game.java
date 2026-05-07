@@ -3,26 +3,23 @@ package game;
 import java.util.Arrays;
 import java.util.List;
 import strategies.Strategy;
+import strategies.ClosestCardStrategy;
 import recon.ReconRule;
 import recon.OpponentMatchesTrophy;
 import recon.OpponentPlaysTrophyPlusN;
+import recon.OpponentHighTrophyPattern;
 import recon.OpponentStrategyUnknown;
 
 public class Game {
     private static final List<ReconRule> RECON_RULES = Arrays.asList(
         new OpponentMatchesTrophy(),
-        new OpponentPlaysTrophyPlusN()
+        new OpponentPlaysTrophyPlusN(),
+        new OpponentHighTrophyPattern()
     );
 
     public static int play(GameState state) {
-        Strategy strategy = selectCounterStrategy(state);
-        int card = strategy.chooseCard(state.myCards, state.currentTrophy);
-
-        if (state.myCards.contains(card)) {
-            return card;
-        } else {
-            return state.myCards.get(0);
-        }
+        Strategy strategy = new ClosestCardStrategy(selectCounterStrategy(state));
+        return strategy.chooseCard(state.myCards, state.currentTrophy);
     }
 
     static Strategy selectCounterStrategy(GameState state) {

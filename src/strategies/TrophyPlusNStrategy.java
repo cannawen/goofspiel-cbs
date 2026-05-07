@@ -2,15 +2,15 @@ package strategies;
 
 import java.util.List;
 
-public class CardTrophyPlusNStrategy implements Strategy {
+public class TrophyPlusNStrategy implements Strategy {
     private final int n;
 
-    public CardTrophyPlusNStrategy(int n) {
+    public TrophyPlusNStrategy(int n) {
         this.n = n;
     }
 
     @Override
     public int chooseCard(List<Integer> myCards, int currentTrophy) {
-        return currentTrophy + n;
+        return ((currentTrophy + n - 1) % 13) + 1;
     }
 }
