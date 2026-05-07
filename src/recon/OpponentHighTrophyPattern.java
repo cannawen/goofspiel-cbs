@@ -1,5 +1,6 @@
 package recon;
 
+import game.GameConstants;
 import game.GameState;
 import strategies.Strategy;
 import strategies.TrophyPlusNStrategy;
@@ -7,7 +8,7 @@ import java.util.List;
 
 // Detects whether the opponent plays high cards or low cards in response to high-value trophies.
 public class OpponentHighTrophyPattern implements ReconRule {
-    private static final int MEDIAN = 7;
+    private static final int MEDIAN = GameConstants.MEDIAN;
     private static final int MIN_HIGH_TROPHY_TURNS = 3;
 
     private boolean highForHigh = true;

@@ -1,5 +1,6 @@
 package strategies;
 
+import game.GameConstants;
 import java.util.List;
 
 public class ClosestCardStrategy implements Strategy {
@@ -15,7 +16,7 @@ public class ClosestCardStrategy implements Strategy {
         if (myCards.contains(target)) {
             return target;
         }
-        boolean preferHigher = currentTrophy > 7;
+        boolean preferHigher = currentTrophy > GameConstants.MEDIAN;
         return myCards.stream()
             .min((a, b) -> {
                 int distA = Math.abs(a - target);
